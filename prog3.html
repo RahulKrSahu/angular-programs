@@ -1,0 +1,37 @@
+<!-- Develop a simple Angular JS calculator application that can
+perform basic mathematical operations (addition, subtraction,
+multiplication, division) based on user input.  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular</title>
+    <script src="angular.min.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope) {
+            $scope.calculate = function () {
+                $scope.add = `${$scope.num1} + ${$scope.num2} = ${$scope.num1 + $scope.num2}`;
+                $scope.sub = `${$scope.num1} - ${$scope.num2} = ${$scope.num1 - $scope.num2}`;
+                $scope.mul = `${$scope.num1} * ${$scope.num2} = ${$scope.num1 * $scope.num2}`;
+                $scope.div = `${$scope.num1} / ${$scope.num2} = ${$scope.num1 / $scope.num2}`;
+            };
+        });
+    </script>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        Enter num1: <input type="text" ng-model="num1"> <br><br>
+        Enter num2: <input type="text" ng-model="num2"> <br><br>
+        <button ng-click="calculate()">Calculate</button>
+        <h2 ng-bind="add"></h2>
+        <h2 ng-bind="sub"></h2>
+        <h2 ng-mul="mul"></h2>
+        <h2 ng-div="div"></h2>
+    </div>
+</body>
+
+</html>
