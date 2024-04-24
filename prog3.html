@@ -13,6 +13,8 @@ multiplication, division) based on user input.  -->
         var app = angular.module("myApp", []);
         app.controller("myCtrl", function ($scope) {
             $scope.calculate = function () {
+                $scope.num1 = parseInt($scope.num1);
+                $scope.num2 = parseInt($scope.num2);
                 $scope.add = `${$scope.num1} + ${$scope.num2} = ${$scope.num1 + $scope.num2}`;
                 $scope.sub = `${$scope.num1} - ${$scope.num2} = ${$scope.num1 - $scope.num2}`;
                 $scope.mul = `${$scope.num1} * ${$scope.num2} = ${$scope.num1 * $scope.num2}`;
@@ -29,8 +31,8 @@ multiplication, division) based on user input.  -->
         <button ng-click="calculate()">Calculate</button>
         <h2 ng-bind="add"></h2>
         <h2 ng-bind="sub"></h2>
-        <h2 ng-mul="mul"></h2>
-        <h2 ng-div="div"></h2>
+        <h2 ng-bind="mul"></h2>
+        <h2 ng-bind="div"></h2>
     </div>
 </body>
 
